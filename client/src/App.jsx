@@ -1,22 +1,30 @@
 import React from "react";
-import { Container, AppBar, Typography, Grow, Grid } from "@mui/material";
+import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import memories from "./images/memories.png";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
+import useStyles from "./styles";
 const App = () => {
+  const classes = useStyles();
   return (
     <Container maxWidth="lg">
-      <AppBar position="static" color="inherit">
-        <Typography variant="h2" align="center">
+      {/* Setting background-color: inherit does cause it to take the background colour of the parent element. The reason it is taking transparent is because the background colour of the parent (the li ) is transparent (the default value) */}
+      <AppBar className={classes.appBar} position="static" color="inherit">
+        <Typography className={classes.heading} variant="h2" align="center">
           Memories
         </Typography>
-        <img src={memories} alt="memories" height="60" width="60" />
+        <img
+          className={classes.image}
+          src={memories}
+          alt="memories"
+          height="60"
+        />
       </AppBar>
       <Grow in>
         <Container>
           <Grid
             container
-            justify="space-between"
+            justifyContent="space-between"
             alignItems="stretch"
             spacing={3}
           >
