@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+
+import { getPosts } from "./actions/posts";
+
 import memories from "./images/memories.png";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import useStyles from "./styles";
 const App = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
   return (
     <Container maxWidth="lg">
       {/* Setting background-color: inherit does cause it to take the background colour of the parent element. The reason it is taking transparent is because the background colour of the parent (the li ) is transparent (the default value) */}

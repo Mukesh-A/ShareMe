@@ -2,18 +2,19 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-
+import dotenv from "dotenv";
+dotenv.config();
 //routes
 import postRouter from "./routes/posts.js";
 
 const app = express();
-app.use("/posts", postRouter);
 
 //we might send images
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(cors());
+app.use("/posts", postRouter);
 
 //connecting mongodb
 const CONNECTION_URL = `mongodb+srv://shareme:${process.env.CONNECTION_URL_PASSWORD}@cluster0.dfgco0x.mongodb.net/?retryWrites=true&w=majority`;
