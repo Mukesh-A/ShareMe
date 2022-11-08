@@ -17,7 +17,7 @@ app.use(cors());
 app.use("/posts", postRouter);
 
 //connecting mongodb
-const CONNECTION_URL = `mongodb+srv://shareme:${process.env.CONNECTION_URL_PASSWORD}@cluster0.dfgco0x.mongodb.net/?retryWrites=true&w=majority`;
+const CONNECTION_URL = `mongodb+srv://shareme:${process.env.CONNECTION_URL_PASSWORD}@cluster0.dfgco0x.mongodb.net/shareme?retryWrites=true&w=majority`;
 
 //heroku will automatically create port number
 const PORT = process.env.PORT || 5000;
