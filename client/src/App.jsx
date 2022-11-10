@@ -8,7 +8,9 @@ import memories from "./images/memories.png";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import useStyles from "./styles";
+import { useState } from "react";
 const App = () => {
+  const [currentId, setcurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -38,10 +40,10 @@ const App = () => {
             spacing={3}
           >
             <Grid item xs={12} sm={7}>
-              <Posts />
+              <Posts setcurrentId={setcurrentId}/>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Form />
+              <Form currentId={currentId} setcurrentId={setcurrentId} />
             </Grid>
           </Grid>
         </Container>
