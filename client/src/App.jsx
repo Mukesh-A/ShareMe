@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [currentId, dispatch]);
   return (
     <Container maxWidth="lg">
       {/* Setting background-color: inherit does cause it to take the background colour of the parent element. The reason it is taking transparent is because the background colour of the parent (the li ) is transparent (the default value) */}
@@ -40,7 +40,7 @@ const App = () => {
             spacing={3}
           >
             <Grid item xs={12} sm={7}>
-              <Posts setcurrentId={setcurrentId}/>
+              <Posts setcurrentId={setcurrentId} />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Form currentId={currentId} setcurrentId={setcurrentId} />
